@@ -20,5 +20,13 @@
   },
   "dependencies": {
     "daisyui": "^2.51.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lowl16/pos-restoran.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lowl16/pos-restoran/issues"
+  },
+  "homepage": "https://github.com/Lowl16/pos-restoran#readme"
 }
