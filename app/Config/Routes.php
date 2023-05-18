@@ -29,11 +29,21 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+$routes->get('/customer/(:any)', 'Customer::$1');
+$routes->post('/customer/(:any)', 'Customer::$1');
+
+$routes->get('/dashboard', 'Dashboard::index');
+$routes->get('/customer', 'Customer::index');
+$routes->get('/chart', 'Chart::index');
+
 $routes->get('/', 'Main::index');
+
 $routes->get('/register', 'Register::index');
 $routes->post('/register/process', 'Register::process');
+
 $routes->get('/login', 'Login::index');
 $routes->post('/login/process', 'Login::process');
+
 $routes->get('/logout', 'Login::logout');
 
 /*
