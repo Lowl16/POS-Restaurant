@@ -9,5 +9,5 @@ class UsersModel extends Model
     // Table
     protected $table = 'users';
     // allowed fields to manage
-    protected $allowedFields = ['username', 'email', 'password', 'role', 'status'];
+    protected $allowedFields = ['username', 'email', 'password', 'role'];
 }
