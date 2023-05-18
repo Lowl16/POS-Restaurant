@@ -29,7 +29,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => 'p3}(TzBEnZkpDu_M',
-        'database' => 'pos_restoran',
+        'database' => 'pos_restaurant',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
