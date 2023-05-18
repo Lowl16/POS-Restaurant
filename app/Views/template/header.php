@@ -53,7 +53,7 @@
                     <li><a><i class="fa-solid fa-user"></i>Profile</a></li>
                     <li><a href="<?= base_url()?>logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
                     <?php if($_SESSION['role'] == 'admin'){ ?>
-                        <li><a href="<?= base_url()?>admin"><i class="fa-solid fa-chart-line"></i>Dashboard</a></li>
+                        <li><a href="<?= base_url()?>dashboard"><i class="fa-solid fa-chart-line"></i>Dashboard</a></li>
                     <?php } ?> 
                 </ul>
             </div>
