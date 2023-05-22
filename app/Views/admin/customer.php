@@ -45,8 +45,8 @@
                                 <td class="p-1 align-middle text-center"><?= $row->email ?></td>
                                 <td class="p-1 align-middle text-center">
                                     <div class="btn-group btn-group-sm">
-                                        <a href="<?= base_url('customer/editcustomer/'.$row->id) ?>" class="btn btn-warning rounded-left" title="Edit Customer"><i class="fa fa-edit"></i> Update</a>
-                                        <a href="<?= base_url('customer/deletecustomer/'.$row->id) ?>" onclick="if(confirm('Are you sure to delete this customer details?') === false) event.preventDefault()" class="btn btn-danger rounded-right" title="Delete Customer"><i class="fa fa-trash"></i> Delete</a>
+                                        <a href="<?= base_url('customer/edit/'.$row->id) ?>" class="btn btn-warning rounded-left" title="Edit Customer"><i class="fa fa-edit"></i> Update</a>
+                                        <a href="<?= base_url('customer/delete/'.$row->id) ?>" onclick="if(confirm('Are you sure to delete this customer details?') === false) event.preventDefault()" class="btn btn-danger rounded-right" title="Delete Customer"><i class="fa fa-trash"></i> Delete</a>
                                     </div>
                                 </td>
                             </tr>
