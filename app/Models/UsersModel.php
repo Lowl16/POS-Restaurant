@@ -10,4 +10,9 @@ class UsersModel extends Model
     protected $table = 'users';
     // allowed fields to manage
     protected $allowedFields = ['username', 'email', 'password', 'role'];
+
+    public function getCustomers()
+    {
+        return $this->where('role', 'customer')->findAll();
+    }
 }
