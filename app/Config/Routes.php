@@ -40,6 +40,20 @@ $routes->get('/cashier', 'Cashier::index');
 $routes->get('/cashier/(:any)', 'Cashier::$1');
 $routes->post('/cashier/(:any)', 'Cashier::$1');
 
+$routes->get('/table', 'Table::index');
+$routes->get('/table/(:any)', 'Table::$1');
+$routes->post('/table/(:any)', 'Table::$1');
+
+$routes->get('/product', 'Product::index');
+$routes->get('/product/(:any)', 'Product::$1');
+$routes->post('/product/(:any)', 'Product::$1');
+
+$routes->get('/order', 'Order::index');
+$routes->get('/order/(:any)', 'Order::$1');
+$routes->post('/order/(:any)', 'Order::$1');
+
+$routes->get('/orders', 'Order::report');
+
 $routes->get('/', 'Main::index');
 
 $routes->get('/register', 'Register::index');
