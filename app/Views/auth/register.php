@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 <?php endif; ?>
-				<form action="<?= base_url(); ?>/register/process" method="POST" id="create-form">
+				<form action="<?= base_url(); ?>/register/process" method="POST">
                     <?= csrf_field(); ?>
                     <div class="py-4">
 						<span class="mb-2 text-md mr-24">Username</span>
@@ -55,7 +55,6 @@
 					Already have an account? <a href="<?php echo base_url('login'); ?>" class="text-blue-500 underline">Sign in</a>
 				</div>
 			</div>
-			
 		</div>
 	</div>
 </body>
