@@ -10,4 +10,9 @@ class ProductsModel extends Model
     protected $table = 'menus';
     // allowed fields to manage
     protected $allowedFields = ['name', 'price', 'description', 'image'];
+
+    public function getProducts()
+    {
+        return $this->findAll();
+    }
 }
