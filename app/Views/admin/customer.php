@@ -31,19 +31,13 @@
             <div class="card-body">
             <a class="btn btn-success mb-3" href="<?= base_url('customer/create')?>"><i class="fa-solid fa-plus"></i> Add Customer</a>
             <div class="table-responsive">
-            <table id="example2" class="table table-striped table-hover">
-                <colgroup>
-                <col width="5%">
-                <col width="30%">
-                <col width="25%">
-                <col width="30%">
-                </colgroup>
+            <table id="customer" class="table table-striped table-hover">
                 <thead>
                 <tr class="bg-gradient bg-dark text-light">
-                    <th class="py-1 text-center">#</th>
-                    <th class="py-1 text-center">Username</th>
-                    <th class="py-1 text-center">Email</th>
-                    <th class="py-1 text-center">Action</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Username</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -74,3 +68,12 @@
     </div>
 </div>
 </section>
+
+<script>
+  $(function () {
+    $("#customer").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#customer_wrapper .col-md-6:eq(0)');
+  });
+</script>
