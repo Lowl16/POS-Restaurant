@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 	<div class="flex items-center justify-center min-h-screen bg-gray-100">
@@ -19,6 +19,9 @@
 
 			<!-- right side -->
 			<div class="flex flex-col justify-center p-8 md:p-14">
+                <a class="flex items-center text-xl mb-7" style="color: #0d6efd;" href="<?= base_url() ?>">
+                    <i class="fa-solid fa-angle-left mr-2"></i> Back to Home
+                </a>
 				<span class="mb-3 text-4xl font-bold">Registration</span>
 				<span class="font-light text-black mb-4">
 					Please enter your information
