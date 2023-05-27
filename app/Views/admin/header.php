@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Restoran | <?php echo $title ?></title>
+    <title>Admin Restoran | <?= $title ?></title>
 
-    <base href="<?php echo base_url('assets') ?>/">
+    <base href="<?= base_url('assets') ?>/">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -83,11 +83,22 @@
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.js"></script>
 
-    <!-- AdminLTE for demo purposes -->
-    <script src="dist/js/demo.js"></script>
-
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="dist/js/pages/dashboard.js"></script>
+
+    <!-- DataTables  & Plugins -->
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="plugins/jszip/jszip.min.js"></script>
+    <script src="plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
         <!-- end of Scritps -->
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -106,7 +117,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
+            <a href="<?= base_url()?>" class="nav-link">Home</a>
         </li>
         </ul>
 
@@ -123,7 +134,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="" class="brand-link">
+        <a href="<?= base_url()?>" class="brand-link">
         <img src="../img/logo.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8" height="100">
         <span class="brand-text font-weight-light">POS Restaurant</span>
         </a>
@@ -136,7 +147,7 @@
             <img src="../img/profile.png" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-            <a href="#" class="d-block"><?= $_SESSION['username']?></a>
+            <a href="../" class="d-block"><?= $_SESSION['username']?></a>
             </div>
         </div>
 
@@ -146,7 +157,7 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <li class="nav-item <?php if (in_array($activeMenu,['dashboard'])) echo "menu-open" ?>">
-                <a href="<?php echo site_url('dashboard')?>" class="nav-link <?php if (in_array($activeMenu,['dashboard'])) echo "active" ?>">
+                <a href="<?= site_url('dashboard')?>" class="nav-link <?php if (in_array($activeMenu,['dashboard'])) echo "active" ?>">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                     Dashboard
@@ -154,7 +165,7 @@
                 </a>
             </li>
             <li class="nav-item <?php if (in_array($activeMenu,['cashier'])) echo "menu-open" ?>">
-                <a href="<?php echo site_url('cashier')?>" class="nav-link <?php if (in_array($activeMenu,['cashier'])) echo "active" ?>">
+                <a href="<?= site_url('cashier')?>" class="nav-link <?php if (in_array($activeMenu,['cashier'])) echo "active" ?>">
                 <i class="nav-icon fa-solid fa-user-tie"></i>
                 <p>
                     Cashiers
@@ -162,7 +173,7 @@
                 </a>
             </li>
             <li class="nav-item <?php if (in_array($activeMenu,['customer'])) echo "menu-open" ?>">
-                <a href="<?php echo site_url('customer')?>" class="nav-link <?php if (in_array($activeMenu,['customer'])) echo "active" ?>">
+                <a href="<?= site_url('customer')?>" class="nav-link <?php if (in_array($activeMenu,['customer'])) echo "active" ?>">
                 <i class="nav-icon fa-solid fa-users"></i>
                 <p>
                     Customers
@@ -170,7 +181,7 @@
                 </a>
             </li>
             <li class="nav-item <?php if (in_array($activeMenu,['table'])) echo "menu-open" ?>">
-                <a href="<?php echo site_url('table')?>" class="nav-link <?php if (in_array($activeMenu,['table'])) echo "active" ?>">
+                <a href="<?= site_url('table')?>" class="nav-link <?php if (in_array($activeMenu,['table'])) echo "active" ?>">
                 <i class="nav-icon fa-solid fa-chair"></i>
                 <p>
                     Table
@@ -178,7 +189,7 @@
                 </a>
             </li>
             <li class="nav-item <?php if (in_array($activeMenu,['product'])) echo "menu-open" ?>">
-                <a href="<?php echo site_url('product')?>" class="nav-link <?php if (in_array($activeMenu,['product'])) echo "active" ?>">
+                <a href="<?= site_url('product')?>" class="nav-link <?php if (in_array($activeMenu,['product'])) echo "active" ?>">
                 <i class="nav-icon fa-solid fa-bowl-food"></i>
                 <p>
                     Products
@@ -186,7 +197,7 @@
                 </a>
             </li>
             <li class="nav-item <?php if (in_array($activeMenu,['order'])) echo "menu-open" ?>">
-                <a href="<?php echo site_url('order')?>" class="nav-link <?php if (in_array($activeMenu,['order'])) echo "active" ?>">
+                <a href="<?= site_url('order')?>" class="nav-link <?php if (in_array($activeMenu,['order'])) echo "active" ?>">
                 <i class="nav-icon fa-solid fa-cart-shopping"></i>
                 <p>
                     Orders
@@ -194,15 +205,15 @@
                 </a>
             </li>
             <li class="nav-item <?php if (in_array($activeMenu,['payment'])) echo "menu-open" ?>">
-                <a href="<?php echo site_url('payment')?>" class="nav-link <?php if (in_array($activeMenu,['payment'])) echo "active" ?>">
+                <a href="<?= site_url('payment')?>" class="nav-link <?php if (in_array($activeMenu,['payment'])) echo "active" ?>">
                 <i class="nav-icon fa-solid fa-money-bill"></i>
                 <p>
                     Payments
                 </p>
                 </a>
             </li>
-            <li class="nav-item <?php if (in_array($activeMenu,['receipt'])) echo "menu-open" ?>">
-                <a href="<?php echo site_url('receipt')?>" class="nav-link <?php if (in_array($activeMenu,['receipt'])) echo "active" ?>">
+            <li class="nav-item <?php if (in_array($activeMenu,['receipts'])) echo "menu-open" ?>">
+                <a href="<?= site_url('receipts')?>" class="nav-link <?php if (in_array($activeMenu,['receipts'])) echo "active" ?>">
                 <i class="nav-icon fa-solid fa-file-invoice"></i>
                 <p>
                     Receipts
@@ -211,7 +222,7 @@
             </li>
             <li class="nav-header">REPORTS</li>
             <li class="nav-item <?php if (in_array($activeMenu,['orders'])) echo "menu-open" ?>">
-                <a href="<?php echo site_url('orders')?>" class="nav-link <?php if (in_array($activeMenu,['orders'])) echo "active" ?>">
+                <a href="<?= site_url('orders')?>" class="nav-link <?php if (in_array($activeMenu,['orders'])) echo "active" ?>">
                 <i class="nav-icon fa-solid fa-basket-shopping"></i>
                 <p>
                     Orders
@@ -219,7 +230,7 @@
                 </a>
             </li>
             <li class="nav-item <?php if (in_array($activeMenu,['payments'])) echo "menu-open" ?>">
-                <a href="<?php echo site_url('payments')?>" class="nav-link <?php if (in_array($activeMenu,['payment'])) echo "active" ?>">
+                <a href="<?= site_url('payments')?>" class="nav-link <?php if (in_array($activeMenu,['payments'])) echo "active" ?>">
                 <i class="nav-icon fa-solid fa-money-bill-trend-up"></i>
                 <p>
                     Payments
@@ -238,12 +249,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0"><?php echo $title ?></h1>
+                <h1 class="m-0"><?= $title ?></h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="<?php echo site_url()?>">Home</a></li>
-                <li class="breadcrumb-item active"><?php echo $title ?></li>
+                <li class="breadcrumb-item"><a href="<?= site_url()?>">Home</a></li>
+                <li class="breadcrumb-item active"><?= $title ?></li>
                 </ol>
             </div><!-- /.col -->
             </div><!-- /.row -->
