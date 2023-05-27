@@ -12,6 +12,10 @@
 <!-- Theme style -->
 <link rel="stylesheet" href="dist/css/adminlte.min.css">
 
+<!-- Select2 -->
+<link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
 <section class="content">
     <div class="container-fluid">
     <div class="row">
@@ -33,7 +37,7 @@
                 </div>
                 <div class="form-group">
                 <label for="size">Size</label>
-                <select class="form-control" id="size" name="size" required>
+                <select class="form-control select2" style="width: 100%;" id="size" name="size" required>
                 <option value="Small (2 Person)" <?= isset($data['size']) && $data['size'] == 'Small (2 Person)' ? 'selected' : '' ?>>Small (2 Person)</option>
                 <option value="Medium (4 Person)" <?= isset($data['size']) && $data['size'] == 'Medium (4 Person)' ? 'selected' : '' ?>>Medium (4 Person)</option>
                 <option value="Large (6 Person)" <?= isset($data['size']) && $data['size'] == 'Large (6 Person)' ? 'selected' : '' ?>>Large (6 Person)</option>
@@ -50,3 +54,13 @@
     </div>
     </div>
 </section>
+
+<script>
+    $(function () {
+    //Initialize Select2 Elements
+        $('.select2').select2({
+            theme: 'bootstrap4'
+        })
+    })
+    </script>
+<script src="/assets/plugins/select2/js/select2.full.min.js"></script>
