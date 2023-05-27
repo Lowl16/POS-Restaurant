@@ -14,7 +14,25 @@
 
 <style>
     .table-responsive {
-    overflow-x: auto;
+        overflow-x: auto;
+    }
+    .status {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+    .pending {
+        background-color: #f1c40f;
+        color: white;
+    }
+    .unpaid {
+        background-color: #e74c3c;
+        color: white;
+    }
+    .paid {
+        background-color: #2ecc71;
+        color: white;
     }
 </style>
 
@@ -29,41 +47,56 @@
             <!-- /.card-header -->
 
             <div class="card-body">
-            <a class="btn btn-success mb-3" href="<?= base_url('product/create')?>"><i class="fa-solid fa-plus"></i> Add Product</a>
             <div class="table-responsive">
-            <table id="example2" class="table table-striped table-hover">
-                <colgroup>
-                <col width="5%">
-                <col width="30%">
-                <col width="10%">
-                <col width="30%">
-                <col width="25%">
-                </colgroup>
+            <table id="reportorder" class="table table-striped table-hover">
                 <thead>
                 <tr class="bg-gradient bg-dark text-light">
-                    <th class="py-1 text-center">#</th>
-                    <th class="py-1 text-center">Name</th>
-                    <th class="py-1 text-center">Price</th>
-                    <th class="py-1 text-center">Image</th>
-                    <th class="py-1 text-center">Action</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Customer</th>
+                    <th class="text-center">Table</th>
+                    <th class="text-center">Product</th>
+                    <th class="text-center">Unit Price</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Total Price</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Date</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php if(count($list) > 0): ?>
                     <?php $i = 1; ?>
                     <?php foreach($list as $row): ?>
+                        <?php
+                            $status = $row->order_status;
+                            $statusClass = '';
+                            
+                            switch($status) {
+                                case 'PENDING':
+                                    $statusClass = 'pending';
+                                    break;
+                                case 'UNPAID':
+                                    $statusClass = 'unpaid';
+                                    break;
+                                case 'PAID':
+                                    $statusClass = 'paid';
+                                    break;
+                                default:
+                                    $statusClass = '';
+                                    break;
+                            }
+                        ?>
                         <tr>
                             <th class="p-1 align-middle text-center"><?= $i++ ?></th>
-                            <td class="p-1 align-middle text-center"><?= $row->name ?></td>
+                            <td class="p-1 align-middle text-center"><?= $row->username ?></td>
+                            <td class="p-1 align-middle text-center"><?= $row->table_name ?></td>
+                            <td class="p-1 align-middle text-center"><?= $row->product_name ?></td>
                             <td class="p-1 align-middle text-center">Rp. <?= number_format($row->price, 0, ',', '.') ?></td>
-                            <td class="p-1 align-middle text-center"><img src="<?= base_url($row->image) ?>" alt="Product Image" style="max-width: 100px;"></td>
+                            <td class="p-1 align-middle text-center"><?= $row->product_quantity ?></td>
+                            <td class="p-1 align-middle text-center">Rp. <?= number_format($row->price * $row->product_quantity, 0, ',', '.') ?></td>
                             <td class="p-1 align-middle text-center">
-                                <div class="btn-group btn-group-sm">
-                                    <a href="<?= base_url('product/detail/').$row->id ?>" class="btn btn-primary rounded-left" title="Product Details"><i class="fa-solid fa-eye"></i> Read</a>
-                                    <a href="<?= base_url('product/edit/'.$row->id) ?>" class="btn btn-warning rounded-0" title="Edit Product"><i class="fa fa-edit"></i> Update</a>
-                                    <a href="<?= base_url('product/delete/'.$row->id) ?>" onclick="if(confirm('Are you sure to delete this product details?') === false) event.preventDefault()" class="btn btn-danger rounded-right" title="Delete Product"><i class="fa fa-trash"></i> Delete</a>
-                                </div>
+                                <span class="status <?= $statusClass ?>"><?= $row->order_status ?></span>
                             </td>
+                            <td class="p-1 align-middle text-center"><?= $row->order_date ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>
@@ -78,3 +111,12 @@
     </div>
 </div>
 </section>
+
+<script>
+  $(function () {
+    $("#reportorder").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#reportorder_wrapper .col-md-6:eq(0)');
+  });
+</script>
