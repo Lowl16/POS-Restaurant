@@ -31,21 +31,14 @@
             <div class="card-body">
             <a class="btn btn-success mb-3" href="<?= base_url('product/create')?>"><i class="fa-solid fa-plus"></i> Add Product</a>
             <div class="table-responsive">
-            <table id="example2" class="table table-striped table-hover">
-                <colgroup>
-                <col width="5%">
-                <col width="30%">
-                <col width="10%">
-                <col width="30%">
-                <col width="25%">
-                </colgroup>
+            <table id="product" class="table table-striped table-hover">
                 <thead>
                 <tr class="bg-gradient bg-dark text-light">
-                    <th class="py-1 text-center">#</th>
-                    <th class="py-1 text-center">Name</th>
-                    <th class="py-1 text-center">Price</th>
-                    <th class="py-1 text-center">Image</th>
-                    <th class="py-1 text-center">Action</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Image</th>
+                    <th class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -78,3 +71,12 @@
     </div>
 </div>
 </section>
+
+<script>
+  $(function () {
+    $("#product").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#product_wrapper .col-md-6:eq(0)');
+  });
+</script>
