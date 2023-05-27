@@ -48,11 +48,38 @@ class Order extends BaseController
         $this->data['title'] = "Orders Report";
         $this->data['activeMenu'] = "orders";
 
-        $this->data['list'] = $this->product_model->select('*')->get()->getResult();
+        $this->data['list'] = $this->order_model->getOrderReport();
 
         echo view('admin/header', $this->data);
         echo view('admin/reportorder', $this->data);
         echo view('admin/footer');
+    }
+
+    public function receipt()
+    {
+        $this->data['title'] = "Orders Receipt";
+        $this->data['activeMenu'] = "receipts";
+
+        $this->data['list'] = $this->order_model->getOrderReceipt();
+
+        echo view('admin/header', $this->data);
+        echo view('admin/receiptorder', $this->data);
+        echo view('admin/footer');
+    }
+
+    public function generate($id='')
+    {
+        $this->data['title'] = "Orders Receipt";
+        $this->data['activeMenu'] = "receipts";
+
+        if(empty($id)){
+            $this->session->setFlashdata('error_message','Unknown Data ID.') ;
+            return redirect()->to('/order/receipts');
+        }
+
+        $this->data['list'] = $this->order_model->where(['orders.id' => $id])->getOrderReceipt();
+
+        echo view('admin/generatereceipt', $this->data);
     }
 
     public function create($id='')
