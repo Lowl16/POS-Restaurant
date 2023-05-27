@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group">
                     <label for="size">Size</label>
-                    <select class="form-control select2" id="size" name="size" required>
+                    <select class="form-control select2" style="width: 100%;" id="size" name="size" required>
                     <option value="" disabled selected>-- Choose Size --</option>
                     <option value="Small (2 Person)">Small (2 Person)</option>
                     <option value="Medium (4 Person)">Medium (4 Person)</option>
