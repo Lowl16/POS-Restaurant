@@ -52,7 +52,15 @@ $routes->get('/order', 'Order::index');
 $routes->get('/order/(:any)', 'Order::$1');
 $routes->post('/order/(:any)', 'Order::$1');
 
+$routes->get('/payment', 'Payment::index');
+$routes->get('/payment/(:any)', 'Payment::$1');
+$routes->post('/payment/(:any)', 'Payment::$1');
+
+$routes->get('/receipts', 'Order::receipt');
+
 $routes->get('/orders', 'Order::report');
+
+$routes->get('/payments', 'Payment::report');
 
 $routes->get('/', 'Main::index');
 
