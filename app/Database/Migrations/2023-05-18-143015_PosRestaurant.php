@@ -118,7 +118,7 @@ class PosRestaurant extends Migration
             ],
             'order_status' => [
                 'type' => 'ENUM',
-                'constraint' => ['unpaid', 'paid'],
+                'constraint' => ['PENDING', 'UNPAID', 'PAID'],
             ],
         ]);
         $this->forge->addKey('id', true);
@@ -126,39 +126,6 @@ class PosRestaurant extends Migration
         $this->forge->addForeignKey('user_id', 'users', 'id');
         $this->forge->addForeignKey('product_id', 'menus', 'id');
         $this->forge->createTable('orders');
-
-        // Create table order_items
-        // $this->forge->addField([
-        //     'id' => [
-        //         'type' => 'INT',
-        //         'constraint' => 5,
-        //         'unsigned' => true,
-        //         'auto_increment' => true,
-        //     ],
-        //     'order_id' => [
-        //         'type' => 'INT',
-        //         'constraint' => 5,
-        //         'unsigned' => true,
-        //     ],
-        //     'menu_id' => [
-        //         'type' => 'INT',
-        //         'constraint' => 5,
-        //         'unsigned' => true,
-        //     ],
-        //     'quantity' => [
-        //         'type' => 'INT',
-        //         'constraint' => 5,
-        //         'unsigned' => true,
-        //     ],
-        //     'price' => [
-        //         'type' => 'INT',
-        //         'constraint' => 10,
-        //     ],
-        // ]);
-        // $this->forge->addKey('id', true);
-        // $this->forge->addForeignKey('order_id', 'orders', 'id');
-        // $this->forge->addForeignKey('menu_id', 'menus', 'id');
-        // $this->forge->createTable('order_items');
 
         // Create table reports
         $this->forge->addField([
