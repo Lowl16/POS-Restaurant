@@ -52,7 +52,7 @@
                     <label for="image">Image</label>
                     <div class="input-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="image" name="image" required>
+                        <input type="file" class="custom-file-input" id="image" name="image" accept="image/png, image/jpg, image/jpeg" required>
                         <label class="custom-file-label" for="image">Choose File</label>
                     </div>
                     </div>
@@ -68,6 +68,7 @@
 
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="<?= base_url('product/index/') ?>"  class="btn btn-primary rounded ml-1 float-right" title="Back to List"><i class="fa fa-angle-left"></i> Back to List</a>
             </div>
             </form>
         </div>
