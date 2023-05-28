@@ -7,6 +7,10 @@
     <title>Login</title>
     <link rel="stylesheet" href="/css/app.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">  
 </head>
 <body>
 	<div class="flex items-center justify-center min-h-screen bg-gray-100">
@@ -29,31 +33,32 @@
 				<form action="<?= base_url(); ?>/login/process" method="POST" id="create-form">
 					<div class="py-4">
 						<label class="mb-2 text-md mr-24" for="email">Email</span>
-						<input type="text" class="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500" name="email" id="email" required/>
+						<input type="text" class="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500" name="email" placeholder="Email" id="email" value="<?= old('email') ?>" required/>
 						<?php if (!empty(session()->getFlashdata('erroremail'))) : ?>
-							<span class="text-red-500"><i class="fa-solid fa-circle-exclamation"></i>
-								<?php echo session()->getFlashdata('erroremail'); ?>
-							</span>
-                    	<?php endif; ?>
+                            <script>
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error',
+                                    text: '<?= session()->getFlashdata('erroremail') ?>'
+                                });
+                            </script>
+                        <?php endif; ?>
 					</div>
 					<div class="py-4">
 						<label class="mb-2 text-md" for="password">Password</label>
-						<input type="password" name="password" id="password" required class="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"/>
+						<input type="password" name="password" id="password" placeholder="Password" required class="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"/>
 						<?php if (!empty(session()->getFlashdata('errorpassword'))) : ?>
-							<p class="text-red-500"><i class="fa-solid fa-circle-exclamation"></i>
-								<?php echo session()->getFlashdata('errorpassword'); ?>
-							</>
-                    	<?php endif; ?>
-					</div>
-					<div class="check flex justify-between mt-3 mb-3">
-						<div class="checkbox-input">
-							<input type="checkbox" name="remember" id="check" />
-							<label for="check">Remember me</label>
-						</div>
+                            <script>
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error',
+                                    text: '<?= session()->getFlashdata('errorpassword') ?>'
+                                });
+                            </script>
+                        <?php endif; ?>
 					</div>
 					<button class="w-full bg-blue-500 text-white p-2 mt-3 rounded-lg mb-6 border hover:bg-secondary hover:text-primary hover:border-gray-300">Sign in</button>
 				</form>
-				
 				<div class="text-center">
 					Don't have an account? <a href="<?php echo base_url('register'); ?>" class="text-blue-500 underline">Sign up for free</a>
 				</div>
