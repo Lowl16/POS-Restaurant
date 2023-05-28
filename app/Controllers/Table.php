@@ -65,7 +65,7 @@ class Table extends BaseController
         }else{
             echo view('admin/header', $this->data);
             echo view('admin/createtable', $this->data);
-            // echo view('admin/footer');
+            echo view('admin/footer');
         }
     }
 
