@@ -42,11 +42,13 @@
                 <option value="Medium (4 Person)" <?= isset($data['size']) && $data['size'] == 'Medium (4 Person)' ? 'selected' : '' ?>>Medium (4 Person)</option>
                 <option value="Large (6 Person)" <?= isset($data['size']) && $data['size'] == 'Large (6 Person)' ? 'selected' : '' ?>>Large (6 Person)</option>
                 </select>
+                </div>
             </div>
             <!-- /.card-body -->
 
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="<?= base_url('table/index/') ?>"  class="btn btn-primary rounded ml-1 float-right" title="Back to List"><i class="fa fa-angle-left"></i> Back to List</a>
             </div>
             </form>
         </div>
