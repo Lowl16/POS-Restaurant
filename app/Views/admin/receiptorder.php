@@ -59,7 +59,7 @@
                             <td class="p-1 align-middle text-center"><?= $row->order_date ?></td>
                             <td class="p-1 align-middle text-center">
                                 <div class="btn-group btn-group-sm">
-                                    <a href="<?= base_url('order/generate/').$row->id ?>" class="btn btn-primary rounded" title="Print Receipt"><i class="fa-solid fa-print"></i> Print Receipt</a>
+                                    <a href="<?= base_url('order/generate/').$row->id ?>" target="_blank" class="btn btn-primary rounded" title="Print Receipt"><i class="fa-solid fa-print"></i> Print Receipt</a>
                                 </div>
                             </td>
                         </tr>
