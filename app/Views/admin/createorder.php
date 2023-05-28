@@ -109,6 +109,7 @@
 
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="<?= base_url('order/index/') ?>"  class="btn btn-primary rounded ml-1 float-right" title="Back to List"><i class="fa fa-angle-left"></i> Back to List</a>
             </div>
             </form>
         </div> 
