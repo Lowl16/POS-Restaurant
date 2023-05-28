@@ -25,7 +25,7 @@ class Register extends BaseController
 
     public function index()
     {
-        return view('auth/register');
+        return view('auth/register', $this->data);
     }
 
     public function process()
