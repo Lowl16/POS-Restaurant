@@ -29,7 +29,7 @@
                                 <address>
                                     <strong>POS Restaurant</strong>
                                     <br>
-                                    127-0-0-1
+                                    https://pos-restaurant-sandhi.000webhostapp.com/
                                     <br>
                                     Politeknik Negeri Jakarta
                                     <br>
