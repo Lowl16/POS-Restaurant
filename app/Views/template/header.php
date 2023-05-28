@@ -1,6 +1,23 @@
 <link rel="stylesheet" href="/css/app.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+<style>
+  /* Style for Profile button */
+  .button-profile:active {
+    background-color: #888888;
+  }
+  
+  /* Style for Logout button */
+  .button-logout:active {
+    background-color: #888888;
+  }
+  
+  /* Style for Dashboard button */
+  .button-dashboard:active {
+    background-color: #888888;
+  }
+</style>
+
 <div class="navbar bg-base-100 sticky top-0 z-50">
     <div class="navbar-start">
         <a class="btn btn-ghost normal-case text-xl"><img class="w-8 h-8 mr-2" src="img/logo.png" alt="Logo">POS Restaurant</a>
@@ -15,10 +32,10 @@
                     </div>
                 </label>
                 <ul tabindex="0" class="menu menu-compact dropdown-content mt-4 p-2 shadow-xl bg-base-100 rounded-box w-max">
-                    <li><a><i class="fa-solid fa-user"></i>Profile</a></li>
-                    <li><a href="<?= base_url()?>logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+                    <li><a class="button-profile"><i class="fa-solid fa-user"></i>Profile</a></li>
+                    <li><a class="button-logout" href="<?= base_url()?>logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
                     <?php if($_SESSION['role'] == 'admin'){ ?>
-                        <li><a href="<?= base_url()?>dashboard"><i class="fa-solid fa-chart-line"></i>Dashboard</a></li>
+                        <li><a class="button-dashboard" href="<?= base_url()?>dashboard"><i class="fa-solid fa-chart-line"></i>Dashboard</a></li>
                     <?php } ?> 
                 </ul>
             </div>
