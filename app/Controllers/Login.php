@@ -25,7 +25,7 @@ class Login extends BaseController
 
     public function index()
     {
-        return view('auth/login');
+        return view('auth/login', $this->data);
     }
 
     public function process(){
@@ -44,11 +44,13 @@ class Login extends BaseController
                 return redirect()->to('/');
             } else {        
                 session()->setFlashdata('errorpassword', 'Incorrect password');
-                return redirect()->back();
+                session()->setFlashdata('email', $email);
+                return redirect()->back()->withInput();
             }
         } else {
             session()->setFlashdata('erroremail', 'Email is not registered');
-            return redirect()->back();
+            session()->setFlashdata('email', $email);
+            return redirect()->back()->withInput();
         }
     }
 
