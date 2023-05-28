@@ -27,6 +27,18 @@
             <input type="hidden" name="id" value="<?= isset($data['id']) ? $data['id'] : '' ?>">
             <?= csrf_field(); ?>
             <div class="card-body">
+                <?php if (!empty(session()->getFlashdata('error'))) : ?>
+                    <div class="form-group">
+                    <div class="card mb-4 mt-2">
+                        <div class="card-header bg-danger border-bottom-0 rounded-top">
+                            <h3 class="card-title text-white"><strong>Update cashier failed!</strong></h3>
+                        </div>
+                        <div class="card-body mb-n3  border border-top-0 rounded-bottom">
+                            <?php echo session()->getFlashdata('error'); ?>
+                        </div>
+                    </div>
+                    </div>
+                <?php endif; ?>
                 <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" name="username" value="<?= isset($data['username']) ? $data['username'] : '' ?>" placeholder="Username" required>
@@ -44,6 +56,7 @@
 
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="<?= base_url('cashier/index/') ?>"  class="btn btn-primary rounded ml-1 float-right" title="Back to List"><i class="fa fa-angle-left"></i> Back to List</a>
             </div>
             </form>
         </div>
