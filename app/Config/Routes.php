@@ -29,38 +29,42 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+$routes->group('', ['filter' => 'auth'], function($routes) {
 
-$routes->get('/dashboard', 'Dashboard::index');
+    $routes->get('/dashboard', 'Dashboard::index');
+    $routes->get('/dashboard/(:any)', 'Dashboard::$1');
+    $routes->post('/dashboard/(:any)', 'Dashboard::$1');
 
-$routes->get('/customer', 'Customer::index');
-$routes->get('/customer/(:any)', 'Customer::$1');
-$routes->post('/customer/(:any)', 'Customer::$1');
+    $routes->get('/customer', 'Customer::index');
+    $routes->get('/customer/(:any)', 'Customer::$1');
+    $routes->post('/customer/(:any)', 'Customer::$1');
 
-$routes->get('/cashier', 'Cashier::index');
-$routes->get('/cashier/(:any)', 'Cashier::$1');
-$routes->post('/cashier/(:any)', 'Cashier::$1');
+    $routes->get('/cashier', 'Cashier::index');
+    $routes->get('/cashier/(:any)', 'Cashier::$1');
+    $routes->post('/cashier/(:any)', 'Cashier::$1');
 
-$routes->get('/table', 'Table::index');
-$routes->get('/table/(:any)', 'Table::$1');
-$routes->post('/table/(:any)', 'Table::$1');
+    $routes->get('/table', 'Table::index');
+    $routes->get('/table/(:any)', 'Table::$1');
+    $routes->post('/table/(:any)', 'Table::$1');
 
-$routes->get('/product', 'Product::index');
-$routes->get('/product/(:any)', 'Product::$1');
-$routes->post('/product/(:any)', 'Product::$1');
+    $routes->get('/product', 'Product::index');
+    $routes->get('/product/(:any)', 'Product::$1');
+    $routes->post('/product/(:any)', 'Product::$1');
 
-$routes->get('/order', 'Order::index');
-$routes->get('/order/(:any)', 'Order::$1');
-$routes->post('/order/(:any)', 'Order::$1');
+    $routes->get('/order', 'Order::index');
+    $routes->get('/order/(:any)', 'Order::$1');
+    $routes->post('/order/(:any)', 'Order::$1');
 
-$routes->get('/payment', 'Payment::index');
-$routes->get('/payment/(:any)', 'Payment::$1');
-$routes->post('/payment/(:any)', 'Payment::$1');
+    $routes->get('/payment', 'Payment::index');
+    $routes->get('/payment/(:any)', 'Payment::$1');
+    $routes->post('/payment/(:any)', 'Payment::$1');
 
-$routes->get('/receipts', 'Order::receipt');
+    $routes->get('/receipts', 'Order::receipt');
 
-$routes->get('/orders', 'Order::report');
+    $routes->get('/orders', 'Order::report');
 
-$routes->get('/payments', 'Payment::report');
+    $routes->get('/payments', 'Payment::report');
+});
 
 $routes->get('/', 'Main::index');
 
